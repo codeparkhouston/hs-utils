@@ -1,8 +1,10 @@
-mkdir dist/$1/
-cp -r src/template-lesson/ dist/$1/
-rm dist/$1/*/*.jade
-rm dist/$1/**.jade
-jade src/template-lesson/**.jade -o dist/$1/ -O src/lesson-configs/$1.json -P
-jade src/template-lesson/project/**.jade -o dist/$1/project/ -O src/lesson-configs/$1.json -P
-jade src/template-lesson/exercise/**.jade -o dist/$1/exercise/ -O src/lesson-configs/$1.json -P
-jade src/template-lesson/concepts/**.jade -o dist/$1/concepts/ -O src/lesson-configs/$1.json -P
+WD=$( pwd )
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+mkdir $WD/dist/$1/
+cp -r $DIR/template-lesson/ $WD/dist/$1/
+rm $WD/dist/$1/*/*.jade
+rm $WD/dist/$1/**.jade
+jade $DIR/template-lesson/**.jade -o $WD/dist/$1/ -O $DIR/lesson-configs/$1.json -P
+jade $DIR/template-lesson/project/**.jade -o $WD/dist/$1/project/ -O $DIR/lesson-configs/$1.json -P
+jade $DIR/template-lesson/exercise/**.jade -o $WD/dist/$1/exercise/ -O $DIR/lesson-configs/$1.json -P
+jade $DIR/template-lesson/concepts/**.jade -o $WD/dist/$1/concepts/ -O $DIR/lesson-configs/$1.json -P
