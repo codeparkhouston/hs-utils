@@ -1,0 +1,38 @@
+{
+  "name": "hs-utils",
+  "version": "1.0.0",
+  "description": "1.",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "brace": "^0.5.1",
+    "headjs": "git://github.com/headjs/headjs",
+    "highlight.js": "^8.7.0",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "normalize.css": "^3.0.3",
+    "prismjs": "0.0.1",
+    "reveal": "0.0.4"
+  },
+  "devDependencies": {
+    "groc": "^0.8.0",
+    "jade": "^1.11.0",
+    "less": "^2.5.1",
+    "less-fixed": "0.0.4",
+    "parallelshell": "^2.0.0",
+    "watch": "^0.16.0",
+    "watchify": "^3.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:less": "for file in ./src/less/*.less; do less-fixed $file ./dist/assets/${file:11:(${#file}-15)}css & done",
+    "build:docs": "groc; echo 'grocced!';",
+    "watch:less": "watch 'npm run build:less' ./src/less",
+    "watch:docs": "watch 'npm run build:docs' ./dist/exercise",
+    "watch:js": "for file in ./src/js/*.js; do watchify $file -o ${file/#.\\/src\\/js/.\\/dist\\/assets} -v & done",
+    "dev": "parallelshell 'npm run watch:less' 'npm run watch:js'",
+    "gh-publish": "git checkout gh-pages; git merge master; npm run build:docs; git add dist/code/**; git commit -m 'only for gh-pages'; git subtree push --prefix=dist origin gh-pages; git checkout master;"
+  },
+  "author": "",
+  "license": "ISC"
+}

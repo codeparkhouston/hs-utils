@@ -1,0 +1,170 @@
+@import (npm) 'reveal';
+@import (npm) 'reveal/theme/sky';
+// @import (npm) 'highlight.js/styles/zenburn';
+@import (npm) 'prismjs/themes/prism-okaidia';
+
+@import '../_less/theming';
+
+body {
+  background: @theme-neutral-light;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none;
+}
+
+.reveal section img {
+  margin: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.reveal .emphasize {
+  font-size: 1.25em;
+}
+
+.reveal .small-text {
+  font-size: 20px;
+}
+
+.reveal pre {
+  width: 100%;
+}
+
+.reveal pre {
+  font-size: 1em;
+}
+
+.reveal .slides section .fragment.highlight.visible{
+  color: #58a83d;
+}
+
+.reveal .slides section .fragment.highlight{
+  opacity: 1;
+  visibility: visible;
+}
+
+.reveal .slides section .fragment.highlight-big.visible{
+  font-size: 1.5em;
+}
+
+.reveal .slides section .fragment.highlight-big{
+  opacity: 1;
+  visibility: visible;
+}
+
+.reveal .slides section .fragment.hljs-tag.visible{
+  font-size: 1.25em;
+  display: inline-block;
+  margin: 0 0.25em;
+}
+
+strike{
+  color: #999;
+}
+
+.reveal .tooltip-inner{
+  max-width: 340px;
+  min-width: 340px;
+  padding: 10px;
+  margin: 25px;
+}
+
+.reveal .tooltip.bottom .tooltip-arrow {
+  margin-left: -32px;
+  border-width: 0 32px 32px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #000;
+}
+
+.reveal .tooltip.top .tooltip-arrow {
+  margin-left: -32px;
+  border-width: 32px 32px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #000;
+}
+
+.reveal .tooltip.right .tooltip-arrow {
+  margin-top: -32px;
+  border-width: 32px 32px 32px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #000;
+}
+
+.reveal .tooltip.left .tooltip-arrow {
+  margin-top: -32px;
+  border-width: 32px 0 32px 32px;
+  border-style: solid;
+  border-color: transparent;
+  border-left-color: #000;
+}
+
+.reveal .tipped{
+  display: inline-block;
+  text-align: center;
+  /*margin: 0 0.25em;*/
+  cursor: pointer;
+}
+
+.reveal .tipped[aria-describedby], .reveal .tipped:hover{
+  background: #000;
+}
+
+.reveal kbd {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  background-color: @theme-neutral-light;
+  border: 1px solid #ccc;
+  color: @theme-neutral-dark;
+  text-shadow: 0 3px 0 @theme-neutral-lightest;
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  margin: 0 0.1em;
+  white-space: nowrap;
+  box-shadow: 0 4px 0px rgba(0,0,0,0.2), 0 0 0 5px @theme-neutral-lightest inset;
+  border-radius: 12px;
+  font-size: 0.75em;
+}
+
+.reveal span.fragment.fill-in-the-blank {
+  opacity: 1;
+  border-bottom: 1px solid @theme-neutral-dark;
+  color: transparent;
+  font-style: italic;
+  font-size: 100;
+  margin: 0 4px;
+
+  &.visible {
+    color: fade(@theme-neutral-dark, 75%);
+  }
+}
+
+.reveal [class^='col-'] {
+  padding: 0 15px;
+}
+
+
+pre code .line.focus{
+  background: rgba(0, 0, 0, .5);
+  font-size: 1.25em;
+  line-height: 1.5em;
+}
+
+pre code .line:hover{
+  background: rgba(0, 0, 0, .1);
+}
+
+pre code .line.focus:hover{
+  background: rgba(0, 0, 0, .6);
+}

@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title #{lessonName} -- #{lessonTopic} -- Exercise
+    link(rel='stylesheet', type='text/css', href='../../assets/lib.css')
+    link(rel='stylesheet', type='text/css', href='../../assets/video-controller.css')
+
+    // exercise stuff goes here
+
+    link(rel='stylesheet', type='text/css', href='./assets/main.css')
+
+  body
+    // exercise stuff goes here
+
+    .instructions
+      iframe#instructions(width='576', height='360', frameborder='0', src='../concepts')
+      .list-group#checklist
+
+    script(type='text/javascript', src='../../assets/lib.js')
+    script(type='text/javascript', src='../../assets/error-handling.js', data-manual)
+    script(type='text/javascript', src='../../assets/video-controller.js')
+    script(type='text/javascript', src='https://www.youtube.com/iframe_api')
+
+    // exercise stuff goes here
+
+    script(type='text/javascript', src='./assets/main.js')

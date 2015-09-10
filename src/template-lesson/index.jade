@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title #{lessonName} -- #{lessonTopic}
+    link(rel='stylesheet', type='text/css', href='../assets/lib.css')
+
+  body
+    .container
+      .row
+        .col-xs-12
+          h1 #{lessonTopic}
+          .list-group
+            a.list-group-item(href='./exercise') Exercise
+            a.list-group-item(href='./project') Project
+            a.list-group-item(href='./concepts') Concepts
+            a.list-group-item(href='./code') Code
