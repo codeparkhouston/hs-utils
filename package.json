@@ -10,6 +10,7 @@
     "highlight.js": "^8.7.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
+    "material-design-lite": "^1.0.4-2",
     "normalize.css": "^3.0.3",
     "prismjs": "0.0.1",
     "reveal": "0.0.4"
