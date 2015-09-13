@@ -16,6 +16,7 @@
     "reveal": "0.0.4"
   },
   "devDependencies": {
+    "browserify": "^11.1.0",
     "groc": "^0.8.0",
     "jade": "^1.11.0",
     "less": "^2.5.1",
@@ -28,11 +29,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:less": "for file in ./src/less/*.less; do less-fixed $file ./dist/assets/${file:11:(${#file}-15)}css & done",
     "build:docs": "groc; echo 'grocced!';",
+    "build:js": "for file in ./src/js/*.js; do browserify $file -o ${file/#.\\/src\\/js/.\\/dist\\/assets} & done",
+    "build:dist": "npm run build:less; npm run build:js; npm run build:docs;",
     "watch:less": "watch 'npm run build:less' ./src/less",
     "watch:docs": "watch 'npm run build:docs' ./dist/exercise",
     "watch:js": "for file in ./src/js/*.js; do watchify $file -o ${file/#.\\/src\\/js/.\\/dist\\/assets} -v & done",
     "dev": "parallelshell 'npm run watch:less' 'npm run watch:js'",
-    "gh-publish": "git checkout gh-pages; git merge master; npm run build:docs; git add dist/code/**; git add -A; git commit -m 'only for gh-pages'; git subtree push --prefix=dist origin gh-pages; git checkout master;"
+    "gh-publish": "git checkout gh-pages; git merge master; npm run build:dist; git add dist/**; git add -A; git commit -m 'update asseets'; git subtree push --prefix=dist origin gh-pages; git checkout master;"
   },
   "author": "",
   "license": "ISC"
