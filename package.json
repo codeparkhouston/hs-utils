@@ -32,7 +32,7 @@
     "watch:docs": "watch 'npm run build:docs' ./dist/exercise",
     "watch:js": "for file in ./src/js/*.js; do watchify $file -o ${file/#.\\/src\\/js/.\\/dist\\/assets} -v & done",
     "dev": "parallelshell 'npm run watch:less' 'npm run watch:js'",
-    "gh-publish": "git checkout gh-pages; git merge master; npm run build:docs; git add dist/code/**; git commit -m 'only for gh-pages'; git subtree push --prefix=dist origin gh-pages; git checkout master;"
+    "gh-publish": "git checkout gh-pages; git merge master; npm run build:docs; git add dist/code/**; git add -A; git commit -m 'only for gh-pages'; git subtree push --prefix=dist origin gh-pages; git checkout master;"
   },
   "author": "",
   "license": "ISC"
