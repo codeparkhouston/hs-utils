@@ -6987,6 +6987,10 @@ pre[class*="language-"] {
   background-color: #FFF;
   overflow: auto;
 }
+.instructions.help .close::before {
+  content: "×";
+  outline: none;
+}
 .instructions.help h2 {
   border-bottom: 1px dotted #333;
   padding: 0.75em 0.5em 0.25em;
@@ -7003,6 +7007,10 @@ pre[class*="language-"] {
 }
 .instructions.help .list-group-item:last-child {
   border-radius: 0;
+}
+.instructions.help a.list-group-item,
+.instructions.help button.list-group-item {
+  background-color: transparent;
 }
 .instructions.help a.list-group-item:hover,
 .instructions.help button.list-group-item:hover {
@@ -7021,7 +7029,7 @@ pre[class*="language-"] {
 }
 .instructions.help [contenteditable] {
   border: 1px solid transparent;
-  padding: 0.25em;
+  padding: 0.8em 0.25em 0.05em 0.25em;
 }
 .instructions.help [contenteditable]:hover {
   border-color: #c11600;
@@ -7029,10 +7037,10 @@ pre[class*="language-"] {
 }
 .instructions.help [contenteditable]:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
 }
 .instructions.help [contenteditable]:active {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
 }
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
