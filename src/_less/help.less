@@ -2,6 +2,13 @@
   background-color: #FFF;
   overflow: auto;
 
+  .close {
+    &::before {
+      content: "×";
+      outline: none;
+    }
+  }
+
   h2 {
     border-bottom: 1px dotted #333;
     padding: 0.75em 0.5em 0.25em;
@@ -25,11 +32,13 @@
 
   a.list-group-item,
   button.list-group-item {
+    background-color: transparent;
+
     &:hover {
-      background-color: rgba(95, 204, 95, 0.5);      
+      background-color: rgba(95, 204, 95, 0.5);
     }
     &:focus {
-      background-color: rgba(95, 204, 95, 1);      
+      background-color: rgba(95, 204, 95, 1);
     }
   }
 
@@ -43,7 +52,7 @@
 
   [contenteditable] {
     border: 1px solid transparent;
-    padding: 0.25em;
+    padding: 0.8em 0.25em 0.05em 0.25em;
 
     &:hover {
       border-color: #c11600;
@@ -52,11 +61,11 @@
 
     &:focus {
       outline: none;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     &:active {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 }
