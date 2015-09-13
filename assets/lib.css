@@ -6882,3 +6882,158 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #272822;
+}
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+.token.punctuation {
+  color: #f8f8f2;
+}
+.namespace {
+  opacity: .7;
+}
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #e6db74;
+}
+.token.keyword {
+  color: #66d9ef;
+}
+.token.regex,
+.token.important {
+  color: #fd971f;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+.instructions.help {
+  background-color: #FFF;
+  overflow: auto;
+}
+.instructions.help h2 {
+  border-bottom: 1px dotted #333;
+  padding: 0.75em 0.5em 0.25em;
+  margin: 0;
+  font-weight: 300;
+}
+.instructions.help a.list-group-item {
+  transition: background-color 0.1s ease-in;
+}
+.instructions.help .list-group-item {
+  border: none;
+  border-bottom: 1px dotted #333;
+  margin: 0;
+}
+.instructions.help .list-group-item:last-child {
+  border-radius: 0;
+}
+.instructions.help a.list-group-item:hover,
+.instructions.help button.list-group-item:hover {
+  background-color: rgba(95, 204, 95, 0.5);
+}
+.instructions.help a.list-group-item:focus,
+.instructions.help button.list-group-item:focus {
+  background-color: #5fcc5f;
+}
+.instructions.help pre {
+  border: none;
+}
+.instructions.help code[class*="language-"],
+.instructions.help pre[class*="language-"] {
+  line-height: 2;
+}
+.instructions.help [contenteditable] {
+  border: 1px solid transparent;
+  padding: 0.25em 0;
+}
+.instructions.help [contenteditable]:hover {
+  border-color: #c11600;
+  background: rgba(255, 255, 255, 0.1);
+}
+.instructions.help [contenteditable]:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.4);
+}
+.instructions.help [contenteditable]:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
