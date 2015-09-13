@@ -7021,7 +7021,7 @@ pre[class*="language-"] {
 }
 .instructions.help [contenteditable] {
   border: 1px solid transparent;
-  padding: 0.25em 0;
+  padding: 0.25em;
 }
 .instructions.help [contenteditable]:hover {
   border-color: #c11600;
