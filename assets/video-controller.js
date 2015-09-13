@@ -111,8 +111,11 @@ function videoController(name, options){
     var checkpointByTime;
 
     if (event.data == YT.PlayerState.CUED && !consoleCleared){
-      console.clear();
-      consoleCleared = true;
+      var fakeMouseMove = new MouseEvent('mouseover');
+      _.defer(function(){
+        console.clear();
+        consoleCleared = true;
+      });
 
     } else if (event.data == YT.PlayerState.PLAYING){
       setPlaying();
