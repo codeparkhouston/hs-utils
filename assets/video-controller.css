@@ -47,7 +47,7 @@
   overflow: auto;
   height: calc(100% - 360px);
   position: relative;
-  right: calc(-100% + 32px);
+  right: calc(-100% + 38px);
   -webkit-transition: right 100ms ease-in-out;
   transition: right 100ms ease-in-out;
 }
@@ -79,6 +79,10 @@
 #checklist.list-group .list-group-item::before {
   counter-increment: checklist;
   content: counter(checklist) ". ";
+  width: 18px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 4px;
 }
 #checklist.list-group:hover .list-group-item::before {
   opacity: 0.5;
