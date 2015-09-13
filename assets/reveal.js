@@ -14986,12 +14986,6 @@ Reveal.initialize({
   transition: 'none'
 });
 
-
-var codes = document.querySelectorAll('pre code:not([data-manual-highlight])');
-_.each(codes, function(code){
-  Prism.highlightElement(code);
-});
-
 Reveal.addEventListener( 'slidechanged', function( slideChangeEvent ) {
   funkyToolTipBusiness( slideChangeEvent );
 });
