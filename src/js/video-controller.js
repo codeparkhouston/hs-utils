@@ -2,49 +2,54 @@ window.videoController = videoController;
 
 function videoController(name, options){
 
-  var checkpoints = _.clone(options.checkpoints);
+  if(_.isArray(options.checkpoints)){
+    var checkpoints = _.clone(options.checkpoints);
 
-  var videoData = {
-    get playbackRate() {
-      return helperGetter('videoData', 'playbackRate');
-    },
-    set playbackRate(value) {
-      helperSetter('videoData', 'playbackRate', value);
-    },
-    get checkpoint() {
-      var identifier = helperGetter('videoData', 'checkpoint');
-      return _.findWhere(checkpoints, {identifier: identifier});
-    },
-    set checkpoint(value) {
-      if(_.findWhere(checkpoints, {identifier: value})){
-        helperSetter('videoData', 'checkpoint', value);
+    var videoData = {
+      get playbackRate() {
+        return helperGetter('videoData', 'playbackRate');
+      },
+      set playbackRate(value) {
+        helperSetter('videoData', 'playbackRate', value);
+      },
+      get checkpoint() {
+        var identifier = helperGetter('videoData', 'checkpoint');
+        return _.findWhere(checkpoints, {identifier: identifier});
+      },
+      set checkpoint(value) {
+        if(_.findWhere(checkpoints, {identifier: value})){
+          helperSetter('videoData', 'checkpoint', value);
+        }
+      },
+      get nextCheckpoint() {
+        var identifier = helperGetter('videoData', 'checkpoint');
+        var currentIndex = _.findIndex(checkpoints, {identifier: identifier});
+        if(_.isObject(checkpoints[currentIndex + 1])){
+          return checkpoints[currentIndex + 1];
+        } else if (currentIndex == checkpoints.length - 1) {
+          // loop back to the beginning
+          return _.first(checkpoints);
+        } else {
+          videoData.checkpoint = _.first(checkpoints).identifier;
+          return _.first(checkpoints);
+        }
       }
-    },
-    get nextCheckpoint() {
-      var identifier = helperGetter('videoData', 'checkpoint');
-      var currentIndex = _.findIndex(checkpoints, {identifier: identifier});
-      if(_.isObject(checkpoints[currentIndex + 1])){
-        return checkpoints[currentIndex + 1];
-      } else if (currentIndex == checkpoints.length - 1) {
-        // loop back to the beginning
-        return _.first(checkpoints);
-      } else {
-        videoData.checkpoint = _.first(checkpoints).identifier;
-        return _.first(checkpoints);
-      }
-    }
-  };
+    };
+  }
 
   var consoleCleared = false;
   var videoIframe, checklistElement, player;
 
-  initializeVideoData();
-  initializeCheckpoint();
+  if(_.isArray(options.checkpoints)){
+    initializeVideoData();
+    initializeCheckpoint();
+  }
 
   videoIframe = initializeIframe(name, options);
-  checklistElement = makeSteps(checkpoints);
-  updateStepsActive(videoData.checkpoint.identifier, checklistElement);
-
+  if(_.isArray(options.checkpoints)){
+    checklistElement = makeSteps(checkpoints);
+    updateStepsActive(videoData.checkpoint.identifier, checklistElement);
+  }
   return;
 
   function initializeCheckpoint(){
@@ -99,7 +104,14 @@ function videoController(name, options){
   }
 
   function onReady(){
-    cue(videoData.checkpoint);
+    if(_.isObject(videoData)){    
+      cue(videoData.checkpoint);
+    } else {
+      _.delay(function(){
+        console.clear();
+        consoleCleared = true;
+      }, 100);
+    }
   }
 
   function onPlaybackRateChange(){
@@ -110,7 +122,6 @@ function videoController(name, options){
     var checkpointByTime;
 
     if (event.data == YT.PlayerState.CUED && !consoleCleared){
-      var fakeMouseMove = new MouseEvent('mouseover');
       _.defer(function(){
         console.clear();
         consoleCleared = true;
