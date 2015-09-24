@@ -1,0 +1,12 @@
+.lessons {
+  counter-reset: checklist -1;
+
+  .list-group-item::before {
+    font-weight: 200;
+    content: counter(checklist) ". ";
+    counter-increment: checklist;
+    margin-right: 0.5em;
+    min-width: 2em;
+    text-align: right;
+  }
+}
