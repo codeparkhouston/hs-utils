@@ -2085,6 +2085,9 @@ strike {
 .reveal [class^='col-'] {
   padding: 0 15px;
 }
+.reveal pre {
+  padding: 10px;
+}
 pre code .line.focus {
   background: rgba(0, 0, 0, 0.5);
   font-size: 1.25em;
