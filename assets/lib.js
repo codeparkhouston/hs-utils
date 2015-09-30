@@ -12355,6 +12355,8 @@
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],2:[function(require,module,exports){
 window._ = require('lodash');
+window._.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+
 var codes;
 if(typeof Prism === 'object'){
   codes = document.querySelectorAll('pre code:not([data-manual-highlight])');
