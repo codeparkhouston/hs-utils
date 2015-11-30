@@ -1,4 +1,4 @@
-@import (npm) "bootstrap";
+@import (npm) "bootstrap/less/bootstrap";
 @import (npm) 'prismjs/themes/prism-okaidia';
 
 @import '../_less/help';
@@ -6,6 +6,45 @@
 
 @font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+@btn-primary-color: #FFF;
+@btn-primary-bg: #008bff;
+@btn-primary-border: #008bff;
+
 body {
   font-family: @font-family-sans-serif;
+}
+
+.controls {
+  .make-row();
+}
+
+button {
+  .btn();
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  .btn-lg();
+
+  .transition(background 0.1s ease-in-out);
+
+  &.gray {
+    .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+  }
+  &.blue {
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  }
+  // Success appears as green
+  &.green {
+    .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+  }
+  // Info appears as blue-green
+  &.blue-green {
+    .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+  }
+  // Warning appears as orange
+  &.orange {
+    .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+  }
+  // Danger and error appear as red
+  &.red {
+    .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+  }
 }
